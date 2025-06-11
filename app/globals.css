@@ -12,6 +12,7 @@ body {
 
 * {
   text-wrap: balance;
+  word-break: keep-all;
 }
 
 .presidential-blue {
