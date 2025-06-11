@@ -3,6 +3,11 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+import type React from "react"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
+import SiteDisclaimerBanner from "@/components/site-disclaimer-banner" // 추가된 배너 임포트
+
 export const metadata: Metadata = {
   title: "대한민국 대통령실",
   description:
@@ -23,7 +28,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={cn("antialiased", pretendard.className)}>
-        {children}
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <SiteDisclaimerBanner />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
