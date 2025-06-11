@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { ChevronDown, Globe, Menu, Search, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import OfficeOfThePresidentIcon from "./office-of-the-president-icon";
@@ -95,10 +94,11 @@ export default function Header() {
                       )}
                     </Link>
                     {item.submenus.length > 0 && (
-                      <div className="mega-menu py-8"
-                      style={{
-                        left: `-${index * 100}px`,
-                      }}
+                      <div
+                        className="mega-menu py-8"
+                        style={{
+                          left: `-${index * 100}px`,
+                        }}
                       >
                         <div className="container mx-auto px-4">
                           <div
@@ -159,7 +159,7 @@ export default function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full bg-white transform transition-transform lg:hidden",
+          "fixed inset-y-0 right-0 z-50 w-full bg-white transform transition-transform lg:hidden overflow-y-auto",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -176,7 +176,7 @@ export default function Header() {
             <X className="h-6 w-6" />
           </Button>
         </div>
-        <nav className="p-4">
+        <nav className="p-4 overflow-y-auto max-h-[calc(100vh-4rem)]">
           <ul className="space-y-4">
             {mainNavItems.map((item, index) => (
               <li key={index}>
