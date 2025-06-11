@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const tabs = [
   { id: "home", label: "뉴스룸 홈" },
@@ -14,15 +14,15 @@ const tabs = [
   { id: "card", label: "카드뉴스" },
   { id: "speech", label: "대통령의 말과 글" },
   { id: "global", label: "글로벌 중추국가 대한민국" },
-]
+];
 
 export default function NewsRoomTabs() {
-  const [activeTab, setActiveTab] = useState("home")
+  const [activeTab, setActiveTab] = useState("home");
 
   return (
     <div className="border-b border-gray-200 mb-8">
       <div className="flex flex-wrap justify-center">
-        {tabs.map((tab) => (
+        {/* {tabs.map((tab) => (
           <button
             key={tab.id}
             className={cn(
@@ -33,8 +33,8 @@ export default function NewsRoomTabs() {
           >
             {tab.label}
           </button>
-        ))}
+        ))} */}
       </div>
     </div>
-  )
+  );
 }
