@@ -120,10 +120,10 @@ export default function NewsRoomContent() {
                 }}
               >
                 {photoNewsData.map((item) => (
-                  <Link 
-                    href={item.link} 
-                    key={item.id} 
-                    target="_blank" 
+                  <Link
+                    href={item.link}
+                    key={item.id}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex-shrink-0 cursor-pointer"
                   >
@@ -202,8 +202,14 @@ export default function NewsRoomContent() {
                 }}
               >
                 {shortsData.map((item) => (
-                  <div key={item.id} className="w-full flex-shrink-0">
-                    <div className="relative mb-3 aspect-video w-full overflow-hidden rounded-md">
+                  <Link
+                    href={item.link}
+                    key={item.id}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex-shrink-0 cursor-pointer"
+                  >
+                    <div className="relative mb-3 aspect-square w-full overflow-hidden rounded-md">
                       <Image
                         src={item.image || "/placeholder.svg"}
                         alt={item.title}
@@ -234,7 +240,7 @@ export default function NewsRoomContent() {
                     </div>
                     <h3 className="font-medium mb-1">{item.title}</h3>
                     <p className="text-sm text-gray-500">{item.date}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

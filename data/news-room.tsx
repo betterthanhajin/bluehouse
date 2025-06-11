@@ -28,17 +28,19 @@ export const photoNewsData = [
 export const shortsData = [
   {
     id: 1,
-    title: "대통령 일정 하이라이트",
-    date: "2024.12.14",
-    image: "/placeholder.svg?height=200&width=350",
-    duration: "1:30",
+    title: "한 중 정상 간 통화",
+    date: "2025.06.10",
+    image: "/image/korea-china-presidents-first-phone-call.webp",
+    duration: "1:17",
+    link: "https://www.youtube.com/shorts/vKg5aSe3BSg",
   },
   {
     id: 2,
-    title: "정책 브리핑 요약",
-    date: "2024.12.13",
-    image: "/placeholder.svg?height=200&width=350",
-    duration: "2:15",
+    title: "비상경제점검TF회의",
+    date: "2025.06.09",
+    image: "/image/emergency-economic-inspection-tf-2025-june-09.webp",
+    duration: "2:10",
+    link: "https://www.youtube.com/shorts/xjYeIXkgXws",
   },
 ];
 export const mainNewsData = [
