@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { ChevronDown, Globe, Menu, Search, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import OfficeOfThePresidentIcon from "./office-of-the-president-icon"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronDown, Globe, Menu, Search, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import OfficeOfThePresidentIcon from "./office-of-the-president-icon";
 
 const mainNavItems = [
   {
@@ -41,22 +41,6 @@ const mainNavItems = [
     ],
   },
   {
-    title: "대통령실 뉴스룸",
-    href: "/newsroom",
-    submenus: [
-      { title: "뉴스룸 홈", href: "/newsroom" },
-      { title: "사실은 이렇습니다", href: "#" },
-      { title: "사진 정보 공표 목록", href: "#" },
-      { title: "사진뉴스", href: "#" },
-      { title: "쇼츠", href: "#" },
-      { title: "영상뉴스", href: "#" },
-      { title: "브리핑", href: "#" },
-      { title: "카드뉴스", href: "#" },
-      { title: "대통령의 말과 글", href: "#" },
-      { title: "글로벌 중추국가 대한민국", href: "#" },
-    ],
-  },
-  {
     title: "정보공개",
     href: "#",
     submenus: [
@@ -74,10 +58,10 @@ const mainNavItems = [
       { title: "처리 현황 조회", href: "/suggestions/status" },
     ],
   },
-]
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="relative">
@@ -87,7 +71,11 @@ export default function Header() {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
-                <OfficeOfThePresidentIcon className="mr-2" width={40} height={40} />
+                <OfficeOfThePresidentIcon
+                  className="mr-2"
+                  width={40}
+                  height={40}
+                />
                 <span className="text-lg font-bold">대한민국 대통령실</span>
               </Link>
             </div>
@@ -102,7 +90,9 @@ export default function Header() {
                       className="flex items-center py-5 text-sm font-medium text-white hover:text-gray-200"
                     >
                       {item.title}
-                      {item.submenus.length > 0 && <ChevronDown className="ml-1 h-4 w-4" />}
+                      {item.submenus.length > 0 && (
+                        <ChevronDown className="ml-1 h-4 w-4" />
+                      )}
                     </Link>
                     {item.submenus.length > 0 && (
                       <div className="mega-menu py-8"
@@ -112,12 +102,13 @@ export default function Header() {
                       >
                         <div className="container mx-auto px-4">
                           <div
-                            className={`grid gap-x-8 gap-y-4 ${item.submenus.length > 12
+                            className={`grid gap-x-8 gap-y-4 ${
+                              item.submenus.length > 12
                                 ? "grid-cols-6"
                                 : item.submenus.length > 6
-                                  ? "grid-cols-4"
-                                  : "grid-cols-3"
-                              }`}
+                                ? "grid-cols-4"
+                                : "grid-cols-3"
+                            }`}
                           >
                             {item.submenus.map((submenu, subIndex) => (
                               <Link
@@ -154,7 +145,11 @@ export default function Header() {
                 className="lg:hidden text-white"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -165,15 +160,19 @@ export default function Header() {
       <div
         className={cn(
           "fixed inset-y-0 right-0 z-50 w-full bg-white transform transition-transform lg:hidden",
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full",
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="flex h-16 items-center justify-between border-b px-4 presidential-blue-text">
           <Link href="/" className="flex items-center">
-          <OfficeOfThePresidentIcon className="mr-2" width={32} height={32} />
+            <OfficeOfThePresidentIcon className="mr-2" width={32} height={32} />
             <span className="text-lg font-bold">대한민국 대통령실</span>
           </Link>
-          <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setMobileMenuOpen(false)}
+          >
             <X className="h-6 w-6" />
           </Button>
         </div>
@@ -209,5 +208,5 @@ export default function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }
