@@ -189,7 +189,11 @@ export default function NewsRoomContent() {
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>
-                <Link href="#" className="ml-1" aria-label="쇼츠 더보기">
+                <Link
+                  href="https://www.youtube.com/@%EC%9D%B4%EC%9E%AC%EB%AA%85tv/shorts"
+                  className="ml-1"
+                  aria-label="쇼츠 더보기"
+                >
                   <Plus className="h-4 w-4" />
                 </Link>
               </div>
