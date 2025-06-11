@@ -2,23 +2,27 @@ export const photoNewsData = [
   {
     id: 1,
     title: "국민께 드리는 말씀",
-    date: "2024.12.14",
-    image: "/placeholder.svg?height=300&width=400",
-    description: "이재명 대통령이 국민께 드리는 새해 인사말을 전하고 있습니다.",
+    date: "2025.06.04",
+    image: "/image/inauguration-2025-june-6.webp",
+    description:
+      "이재명 대통령이 국민께 드리는 취임식 인사말을 전하고 있습니다.",
+    link: "https://www.bbc.com/korean/articles/cn0gwv9wzeeo",
   },
   {
     id: 2,
-    title: "한-미 정상회담",
-    date: "2024.12.12",
-    image: "/placeholder.svg?height=300&width=400",
-    description: "한-미 양국 정상이 양자회담을 진행하고 있습니다.",
+    title: "현충일 추념식",
+    date: "2025.06.06",
+    image: "/image/memorial-day-2025-june-6.webp",
+    description: "이재명 대통령이 현충일 추념식을 개최하고 있습니다.",
+    link: "https://www.bbc.com/korean/articles/c15n2jpe407o",
   },
   {
     id: 3,
-    title: "G20 정상회의 참석",
-    date: "2024.12.10",
-    image: "/placeholder.svg?height=300&width=400",
-    description: "대통령이 G20 정상회의에 참석하여 국제 현안을 논의했습니다.",
+    title: "인선발표",
+    date: "2025.06.04",
+    image: "/image/appointment-announcement-2025-june-4.webp",
+    description: "이재명 대통령이 인선발표를 개최하고 있습니다.",
+    link: "https://www.bbc.com/korean/articles/c2kq32ek0n5o",
   },
 ];
 export const shortsData = [

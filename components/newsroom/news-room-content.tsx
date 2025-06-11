@@ -103,7 +103,11 @@ export default function NewsRoomContent() {
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>
-                <Link href="#" className="ml-1" aria-label="사진뉴스 더보기">
+                <Link
+                  href="https://www.google.com/search?&q=%EB%8C%80%ED%86%B5%EB%A0%B9&tbm=nws"
+                  className="ml-1"
+                  aria-label="사진뉴스 더보기"
+                >
                   <Plus className="h-4 w-4" />
                 </Link>
               </div>
@@ -116,7 +120,13 @@ export default function NewsRoomContent() {
                 }}
               >
                 {photoNewsData.map((item) => (
-                  <div key={item.id} className="w-full flex-shrink-0">
+                  <Link 
+                    href={item.link} 
+                    key={item.id} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full flex-shrink-0 cursor-pointer"
+                  >
                     <div className="relative mb-3 aspect-[4/3] w-full overflow-hidden rounded-md">
                       <Image
                         src={item.image || "/placeholder.svg"}
@@ -138,7 +148,7 @@ export default function NewsRoomContent() {
                     </div>
                     <h3 className="font-medium mb-1">{item.title}</h3>
                     <p className="text-sm text-gray-500">{item.date}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
