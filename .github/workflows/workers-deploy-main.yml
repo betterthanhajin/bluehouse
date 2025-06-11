@@ -22,7 +22,10 @@ jobs:
       - name: 🧹 Install dependencies
         run: npm ci
 
-      - name: 🚀 Publish to Cloudflare Workers
+      - name: 📄 Build OpenNextJS Cloudflare
+        run: opennextjs-cloudflare build
+
+      - name: 🚀 Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
