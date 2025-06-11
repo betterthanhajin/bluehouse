@@ -79,25 +79,59 @@ export const mainNewsData = [
 export const factCheckData = [
   {
     id: 1,
-    title: "전 세계 돌며 지원한 유치권... 국익 지키며 발전 사례해야!",
-    summary: "부산 엑스포 유치하고 나서의 소식",
-    date: "2024.12.02",
+    title:
+      '대통령실 "국민추천, 하루만에 1만1,324건 접수… 법무장관·복지장관 순으로 많아"',
+    summary: "전날 '국민추천제' 접수 개시, 장차관, 공공기관장 후보 추천 받아",
+    date: "2025.06.11",
     isNew: true,
+    link: "https://www.hankookilbo.com/News/Read/A2025061114190003652",
   },
   {
     id: 2,
-    title: "대통령, 공주산성시장 방문해 상인들과 소상공인들 격려",
-    summary:
-      "이재명 대통령은 오늘(12.2, 월) 오후 공주산성시장을 방문해 시장 상인 및 지역 소상공인을 격려하는 만남을 이어갔습니다.",
-    date: "2024.12.02",
+    title: '대통령실, "李 시계 만들지말라 지시" 보도에 "사실과 달라"',
+    summary: "시계 포함해 선호도 높은 품목 찾아 대통령실 선물로 제작 예정",
+    date: "2025.06.10",
     isNew: false,
+    link: "https://www.yna.co.kr/view/AKR20250610159200001",
   },
   {
     id: 3,
-    title: '대통령 "전향적인 내수·소비 진작 대책 강구" 주문',
+    title:
+      '대통령실 브리핑 때 질문 기자 찍는 카메라 설치... 李 "댓글 제안 실행"',
     summary:
-      '이재명 대통령은 오늘(12.2, 월) 오전 수석비서관회의에서 "전향적인 내수·소비 진작 대책을 강구하라"고 주문했습니다.',
-    date: "2024.12.02",
+      "대통령실은 언론 브리핑 때 기자들의 질문하는 모습을 중계하는 카메라를 추가 설치하기로 했다.",
+    date: "2025.06.09",
     isNew: false,
+    link: "https://www.chosun.com/politics/blue_house/2025/06/09/URWT3HXCTZE5FO6AN5KSWZOOF4",
+  },
+];
+
+export const briefingData = [
+  {
+    id: 1,
+    title: "'주식불공정거래 적발 시스템 검토' 관련 관련 대통령실 브리핑",
+    date: "2025.06.11",
+    link: "https://www.youtube.com/watch?v=B8gycADR0sk",
+  },
+  {
+    id: 2,
+    title: "'한국거래소 시장감시위원회 방문' 관련 대통령실 브리핑",
+    date: "2025.06.11",
+    link: "https://www.youtube.com/watch?v=5hEJykWcQkY",
+  },
+];
+
+export const pressReleaseData = [
+  {
+    id: 1,
+    title: "예년보다 이른 장마, 수해 방지 대책 긴급점검",
+    date: "2025.06.11",
+    link: "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156693046&pageIndex=1&repCodeType=&repCode=&startDate=2024-06-12&endDate=2025-06-12&srchWord=&period=",
+  },
+  {
+    id: 2,
+    title: "[보도참고] '25.5월 고용동향 및 평가",
+    date: "2025.06.11",
+    link: "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156692956&pageIndex=4&repCodeType=&repCode=&startDate=2024-06-12&endDate=2025-06-12&srchWord=&period=",
   },
 ];

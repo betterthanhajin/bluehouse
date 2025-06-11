@@ -6,10 +6,12 @@ import Link from "next/link";
 import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import OfficeOfThePresidentIcon from "../office-of-the-president-icon";
 import {
-  factCheckData,
-  mainNewsData,
   photoNewsData,
   shortsData,
+  mainNewsData,
+  factCheckData,
+  briefingData,
+  pressReleaseData,
 } from "@/data/news-room";
 
 export default function NewsRoomContent() {
@@ -317,40 +319,60 @@ export default function NewsRoomContent() {
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <h3 className="text-lg font-bold mb-4 flex items-center">
-              브리핑 <Plus className="h-4 w-4 ml-2" />
+              브리핑
+              <Link
+                href="https://www.youtube.com/results?search_query=%EB%8C%80%ED%86%B5%EB%A0%B9%EC%8B%A4+%EB%B8%8C%EB%A6%AC%ED%95%91"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 hover:text-blue-800"
+              >
+                <Plus className="h-4 w-4" />
+              </Link>
             </h3>
             <div className="space-y-3">
-              {[1, 2].map((i) => (
-                <div key={`briefing-${i}`}>
-                  {" "}
+              {briefingData.map((item) => (
+                <div key={`briefing-${item.id}`}>
                   <h4 className="font-medium text-sm mb-1">
-                    {" "}
-                    <Link href="#" className="hover:text-blue-800">
-                      {" "}
-                      수석비서관회의 주요 내용 {i}{" "}
-                    </Link>{" "}
-                  </h4>{" "}
-                  <p className="text-xs text-gray-500">2024.12.1{5 - i}</p>{" "}
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-800"
+                    >
+                      {item.title}
+                    </Link>
+                  </h4>
+                  <p className="text-xs text-gray-500">{item.date}</p>
                 </div>
               ))}
             </div>
           </div>
           <div>
             <h3 className="text-lg font-bold mb-4 flex items-center">
-              보도자료 <Plus className="h-4 w-4 ml-2" />
+              보도자료
+              <Link
+                href="https://www.korea.kr/briefing/pressReleaseList.do"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 hover:text-blue-800"
+              >
+                <Plus className="h-4 w-4" />
+              </Link>
             </h3>
             <div className="space-y-3">
-              {[1, 2].map((i) => (
-                <div key={`press-${i}`}>
-                  {" "}
+              {pressReleaseData.map((item) => (
+                <div key={`press-${item.id}`}>
                   <h4 className="font-medium text-sm mb-1">
-                    {" "}
-                    <Link href="#" className="hover:text-blue-800">
-                      {" "}
-                      2025년 주요 정책 방향 {i}{" "}
-                    </Link>{" "}
-                  </h4>{" "}
-                  <p className="text-xs text-gray-500">2024.12.1{3 - i}</p>{" "}
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-800"
+                    >
+                      {item.title}
+                    </Link>
+                  </h4>
+                  <p className="text-xs text-gray-500">{item.date}</p>
                 </div>
               ))}
             </div>
@@ -375,7 +397,12 @@ export default function NewsRoomContent() {
                 <span className="text-blue-800 text-sm">➔</span>
               </div>
               <h3 className="font-medium text-sm mb-2">
-                <Link href="#" className="hover:text-blue-800">
+                <Link
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-800"
+                >
                   {item.title}
                 </Link>
               </h3>
