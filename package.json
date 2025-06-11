@@ -1,7 +1,7 @@
 {
-  "name": "bluehouse",
+  "name": "president-kr",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://president-kr.com",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -30,5 +30,7 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "wrangler": "^4.19.1"
-  }
+  },
+  "private": true,
+  "license": "MIT"
 }
