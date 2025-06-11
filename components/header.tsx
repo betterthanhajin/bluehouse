@@ -105,7 +105,11 @@ export default function Header() {
                       {item.submenus.length > 0 && <ChevronDown className="ml-1 h-4 w-4" />}
                     </Link>
                     {item.submenus.length > 0 && (
-                      <div className="mega-menu py-8">
+                      <div className="mega-menu py-8"
+                      style={{
+                        left: `-${index * 100}px`,
+                      }}
+                      >
                         <div className="container mx-auto px-4">
                           <div
                             className={`grid gap-x-8 gap-y-4 ${item.submenus.length > 12
@@ -135,13 +139,13 @@ export default function Header() {
 
             {/* Right Side Actions */}
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="icon" className="text-white">
+              {/* <Button variant="ghost" size="icon" className="text-white">
                 <Search className="h-5 w-5" />
               </Button>
               <Button variant="ghost" size="icon" className="text-white">
                 <Globe className="h-5 w-5" />
                 <span className="sr-only">Language</span>
-              </Button>
+              </Button> */}
 
               {/* Mobile Menu Button */}
               <Button

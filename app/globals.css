@@ -1,11 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
 
 * {
   text-wrap: balance;
   word-break: keep-all;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .presidential-blue {
@@ -21,8 +24,7 @@
   opacity: 0;
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100vw;
+  width: 600px;
   background-color: #0a2165;
   transition: all 0.3s ease;
   transform: translateY(-10px);
@@ -47,7 +49,7 @@ header {
 }
 
 .nav-item .mega-menu .container {
-  max-width: 1200px;
+  max-width: 600px;
 }
 
 .news-tab {
