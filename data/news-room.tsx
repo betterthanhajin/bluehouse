@@ -46,28 +46,34 @@ export const shortsData = [
 export const mainNewsData = [
   {
     id: 1,
-    title: "대통령, 2025년 신년사 발표",
+    title: "이 대통령, 대북 확성기 방송 중지 지시…긴장 완화 '선제적 조치'",
     summary:
-      "이재명 대통령이 2025년 새해를 맞아 국민께 드리는 신년사를 발표했습니다.",
-    date: "2024.12.31",
-    category: "주요뉴스",
-    image: "/placeholder.svg?height=200&width=300",
+      '11일 오후 2시부터…대통령실 "접경지 주민들의 고통 덜기 위한 실질적인 조치"',
+    date: "2025.06.11",
+    category: "외교/안보",
+    image: "/image/stop-loudspeaker-on-north-korea-2025-june-11.webp",
+    link: "https://www.korea.kr/news/policyNewsView.do?newsId=148944266&pWise=main&pWiseMain=A3",
   },
   {
     id: 2,
-    title: "한-일 정상회담 개최",
-    summary: "양국 관계 발전과 지역 평화를 위한 협력 방안을 논의했습니다.",
-    date: "2024.12.28",
-    category: "외교",
-    image: "/placeholder.svg?height=200&width=300",
+    title:
+      '이 대통령 "주식 불공정거래 적발시스템 개선"…주가조작 원스트라이크 아웃제 도입',
+    summary:
+      "한국거래소 시장감시위원회 방문…신속한 조사 위해 조직·인력 확충 적극 검토 지시",
+    date: "2025.06.11",
+    category: "경제",
+    image: "/image/market-monitoring-committee-2025-june-11.webp",
+    link: "https://www.korea.kr/news/policyNewsView.do?newsId=148944252&pWise=main&pWiseMain=A1",
   },
   {
     id: 3,
-    title: "경제정책 방향 발표",
-    summary: "2025년 경제 활성화를 위한 새로운 정책 방향을 제시했습니다.",
-    date: "2024.12.25",
+    title: '한·체코 정상, 신규원전 건설 최종계약 체결 "경제협력 확대 시금석"',
+    summary:
+      "이 대통령, 11일 페트로 피알라 체코 총리와 첫 통화…문화분야 교류 협력 확대 기대",
+    date: "2025.06.11",
     category: "경제",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/image/a-nuclear-power-plant-contract-2025-june-11.webp",
+    link: "https://www.korea.kr/news/policyNewsView.do?newsId=148944268&pWise=main&pWiseMain=A2",
   },
 ];
 export const factCheckData = [

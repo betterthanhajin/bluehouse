@@ -278,7 +278,12 @@ export default function NewsRoomContent() {
                       index === 0 ? "text-xl" : "text-lg"
                     }`}
                   >
-                    <Link href="#" className="hover:text-blue-800">
+                    <Link
+                      href={news.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-800"
+                    >
                       {news.title}
                     </Link>
                   </h3>
@@ -291,14 +296,19 @@ export default function NewsRoomContent() {
                       : "w-full sm:w-32 h-24 sm:h-20"
                   }`}
                 >
-                  <div className="relative w-full h-full overflow-hidden rounded-md">
+                  <Link
+                    href={news.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative w-full h-full overflow-hidden rounded-md"
+                  >
                     <Image
                       src={news.image || "/placeholder.svg"}
                       alt={news.title}
                       fill
                       className="object-cover"
                     />
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
