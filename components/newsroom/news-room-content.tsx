@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Plus, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
-import OfficeOfThePresidentIcon from "../office-of-the-president-icon"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
+import OfficeOfThePresidentIcon from "../office-of-the-president-icon";
 
 // Dummy data (이전과 동일)
 const photoNewsData = [
@@ -29,7 +29,7 @@ const photoNewsData = [
     image: "/placeholder.svg?height=300&width=400",
     description: "대통령이 G20 정상회의에 참석하여 국제 현안을 논의했습니다.",
   },
-]
+];
 const shortsData = [
   {
     id: 1,
@@ -45,12 +45,13 @@ const shortsData = [
     image: "/placeholder.svg?height=200&width=350",
     duration: "2:15",
   },
-]
+];
 const mainNewsData = [
   {
     id: 1,
     title: "대통령, 2025년 신년사 발표",
-    summary: "이재명 대통령이 2025년 새해를 맞아 국민께 드리는 신년사를 발표했습니다.",
+    summary:
+      "이재명 대통령이 2025년 새해를 맞아 국민께 드리는 신년사를 발표했습니다.",
     date: "2024.12.31",
     category: "주요뉴스",
     image: "/placeholder.svg?height=200&width=300",
@@ -71,7 +72,7 @@ const mainNewsData = [
     category: "경제",
     image: "/placeholder.svg?height=200&width=300",
   },
-]
+];
 const factCheckData = [
   {
     id: 1,
@@ -96,41 +97,60 @@ const factCheckData = [
     date: "2024.12.02",
     isNew: false,
   },
-]
+];
 
 export default function NewsRoomContent() {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
-  const [currentShortsIndex, setCurrentShortsIndex] = useState(0)
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [currentShortsIndex, setCurrentShortsIndex] = useState(0);
 
   useEffect(() => {
-    if (photoNewsData.length === 0) return
+    if (photoNewsData.length === 0) return;
     const photoInterval = setInterval(() => {
-      setCurrentPhotoIndex((prevIndex) => (prevIndex === photoNewsData.length - 1 ? 0 : prevIndex + 1))
-    }, 4000)
-    return () => clearInterval(photoInterval)
-  }, [photoNewsData.length])
+      setCurrentPhotoIndex((prevIndex) =>
+        prevIndex === photoNewsData.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+    return () => clearInterval(photoInterval);
+  }, [photoNewsData.length]);
 
   useEffect(() => {
-    if (shortsData.length === 0) return
+    if (shortsData.length === 0) return;
     const shortsInterval = setInterval(() => {
-      setCurrentShortsIndex((prevIndex) => (prevIndex === shortsData.length - 1 ? 0 : prevIndex + 1))
-    }, 5000)
-    return () => clearInterval(shortsInterval)
-  }, [shortsData.length])
+      setCurrentShortsIndex((prevIndex) =>
+        prevIndex === shortsData.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+    return () => clearInterval(shortsInterval);
+  }, [shortsData.length]);
 
-  const handleSlideControl = (type: "photo" | "shorts", direction: "prev" | "next" | number) => {
+  const handleSlideControl = (
+    type: "photo" | "shorts",
+    direction: "prev" | "next" | number
+  ) => {
     if (type === "photo") {
-      if (photoNewsData.length === 0) return
-      if (direction === "prev") setCurrentPhotoIndex((prev) => (prev === 0 ? photoNewsData.length - 1 : prev - 1))
-      else if (direction === "next") setCurrentPhotoIndex((prev) => (prev === photoNewsData.length - 1 ? 0 : prev + 1))
-      else if (typeof direction === "number") setCurrentPhotoIndex(direction)
+      if (photoNewsData.length === 0) return;
+      if (direction === "prev")
+        setCurrentPhotoIndex((prev) =>
+          prev === 0 ? photoNewsData.length - 1 : prev - 1
+        );
+      else if (direction === "next")
+        setCurrentPhotoIndex((prev) =>
+          prev === photoNewsData.length - 1 ? 0 : prev + 1
+        );
+      else if (typeof direction === "number") setCurrentPhotoIndex(direction);
     } else {
-      if (shortsData.length === 0) return
-      if (direction === "prev") setCurrentShortsIndex((prev) => (prev === 0 ? shortsData.length - 1 : prev - 1))
-      else if (direction === "next") setCurrentShortsIndex((prev) => (prev === shortsData.length - 1 ? 0 : prev + 1))
-      else if (typeof direction === "number") setCurrentShortsIndex(direction)
+      if (shortsData.length === 0) return;
+      if (direction === "prev")
+        setCurrentShortsIndex((prev) =>
+          prev === 0 ? shortsData.length - 1 : prev - 1
+        );
+      else if (direction === "next")
+        setCurrentShortsIndex((prev) =>
+          prev === shortsData.length - 1 ? 0 : prev + 1
+        );
+      else if (typeof direction === "number") setCurrentShortsIndex(direction);
     }
-  }
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -147,7 +167,9 @@ export default function NewsRoomContent() {
                     <button
                       key={`photo-dot-${index}`}
                       className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentPhotoIndex ? "bg-blue-800" : "bg-gray-300"
+                        index === currentPhotoIndex
+                          ? "bg-blue-800"
+                          : "bg-gray-300"
                       }`}
                       onClick={() => handleSlideControl("photo", index)}
                       aria-label={`사진뉴스 ${index + 1}번 슬라이드로 이동`}
@@ -176,14 +198,25 @@ export default function NewsRoomContent() {
             <div className="relative overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentPhotoIndex * 100}%)` }}
+                style={{
+                  transform: `translateX(-${currentPhotoIndex * 100}%)`,
+                }}
               >
                 {photoNewsData.map((item) => (
                   <div key={item.id} className="w-full flex-shrink-0">
                     <div className="relative mb-3 aspect-[4/3] w-full overflow-hidden rounded-md">
-                      <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+                      <Image
+                        src={item.image || "/placeholder.svg"}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
                       <div className="absolute bottom-0 left-0 bg-white/80 p-1">
-                        <OfficeOfThePresidentIcon className="mr-2" width={24} height={24} />
+                        <OfficeOfThePresidentIcon
+                          className="mr-2"
+                          width={24}
+                          height={24}
+                        />
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
@@ -210,7 +243,9 @@ export default function NewsRoomContent() {
                     <button
                       key={`shorts-dot-${index}`}
                       className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentShortsIndex ? "bg-blue-800" : "bg-gray-300"
+                        index === currentShortsIndex
+                          ? "bg-blue-800"
+                          : "bg-gray-300"
                       }`}
                       onClick={() => handleSlideControl("shorts", index)}
                       aria-label={`쇼츠 ${index + 1}번 슬라이드로 이동`}
@@ -239,18 +274,31 @@ export default function NewsRoomContent() {
             <div className="relative overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentShortsIndex * 100}%)` }}
+                style={{
+                  transform: `translateX(-${currentShortsIndex * 100}%)`,
+                }}
               >
                 {shortsData.map((item) => (
                   <div key={item.id} className="w-full flex-shrink-0">
                     <div className="relative mb-3 aspect-video w-full overflow-hidden rounded-md">
-                      <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+                      <Image
+                        src={item.image || "/placeholder.svg"}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
                       <div className="absolute bottom-0 left-0 bg-white/80 p-1">
-                        <OfficeOfThePresidentIcon width={24} height={24} fill="currentColor" />
+                        <OfficeOfThePresidentIcon
+                          width={24}
+                          height={24}
+                          fill="currentColor"
+                        />
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <span className="bg-black/50 px-2 py-1 rounded text-xs">{item.duration}</span>
+                        <span className="bg-black/50 px-2 py-1 rounded text-xs">
+                          {item.duration}
+                        </span>
                       </div>
                       <div className="absolute center-4 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <button
@@ -275,20 +323,28 @@ export default function NewsRoomContent() {
       <div className="lg:col-span-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">뉴스룸 홈</h2>
-          <Link href="#" className="text-sm text-gray-500 flex items-center">
-            더보기 <ChevronDown className="h-4 w-4 ml-1" />
-          </Link>
         </div>
         <div className="space-y-6">
           {mainNewsData.map((news, index) => (
-            <div key={news.id} className={`${index === 0 ? "border-b-2 pb-6 mb-6" : "border-b pb-4"}`}>
+            <div
+              key={news.id}
+              className={`${
+                index === 0 ? "border-b-2 pb-6 mb-6" : "border-b pb-4"
+              }`}
+            >
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">{news.category}</span>
+                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                      {news.category}
+                    </span>
                     <span className="text-xs text-gray-500">{news.date}</span>
                   </div>
-                  <h3 className={`font-medium mb-2 ${index === 0 ? "text-xl" : "text-lg"}`}>
+                  <h3
+                    className={`font-medium mb-2 ${
+                      index === 0 ? "text-xl" : "text-lg"
+                    }`}
+                  >
                     <Link href="#" className="hover:text-blue-800">
                       {news.title}
                     </Link>
@@ -296,10 +352,19 @@ export default function NewsRoomContent() {
                   <p className="text-sm text-gray-600 mb-2">{news.summary}</p>
                 </div>
                 <div
-                  className={`flex-shrink-0 ${index === 0 ? "w-full sm:w-40 h-32 sm:h-28" : "w-full sm:w-32 h-24 sm:h-20"}`}
+                  className={`flex-shrink-0 ${
+                    index === 0
+                      ? "w-full sm:w-40 h-32 sm:h-28"
+                      : "w-full sm:w-32 h-24 sm:h-20"
+                  }`}
                 >
                   <div className="relative w-full h-full overflow-hidden rounded-md">
-                    <Image src={news.image || "/placeholder.svg"} alt={news.title} fill className="object-cover" />
+                    <Image
+                      src={news.image || "/placeholder.svg"}
+                      alt={news.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
               </div>
@@ -354,15 +419,16 @@ export default function NewsRoomContent() {
       <div className="lg:col-span-3">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">사실은 이렇습니다</h2>
-          <Link href="#" className="text-sm text-gray-500 flex items-center">
-            더보기 <ChevronDown className="h-4 w-4 ml-1" />
-          </Link>
         </div>
         <div className="space-y-6">
           {factCheckData.map((item) => (
             <div key={item.id} className="border-b pb-4">
               <div className="flex items-start gap-2 mb-2">
-                {item.isNew && <span className="text-xs bg-red-500 text-white px-2 py-1 rounded">NEW</span>}
+                {item.isNew && (
+                  <span className="text-xs bg-red-500 text-white px-2 py-1 rounded">
+                    NEW
+                  </span>
+                )}
                 <span className="text-blue-800 text-sm">➔</span>
               </div>
               <h3 className="font-medium text-sm mb-2">
@@ -375,12 +441,7 @@ export default function NewsRoomContent() {
             </div>
           ))}
         </div>
-        <div className="mt-6 text-center">
-          <button className="bg-blue-800 text-white px-4 py-2 rounded text-sm hover:bg-blue-900 transition-colors w-full">
-            사실은 이렇습니다 전체보기
-          </button>
-        </div>
       </div>
     </div>
-  )
+  );
 }
