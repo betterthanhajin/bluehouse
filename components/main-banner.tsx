@@ -4,7 +4,7 @@ export default function MainBanner() {
   return (
     <div className="relative w-full h-[400px]">
       <Image
-        src="/image/president-call-2025-may-9.webp"
+        src="/image/president-call-2025-june-9.webp"
         alt="대통령이 수화기를 들고 웃으며 전화를 하는 모습"
         fill
         className="object-cover rounded-lg"
