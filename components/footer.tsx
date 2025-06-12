@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="flex items-center mb-4 md:mb-0 presidential-blue-text">
             <OfficeOfThePresidentIcon className="mr-2" width={40} height={40} />
             <span className="text-lg font-bold">
-              대한민국 대통령실 (비공식)
+              대한민국 대통령실 (비공식 팬페이지)
             </span>
           </div>
           <div className="flex space-x-4">
