@@ -13,7 +13,7 @@ const mainNavItems = [
     href: "#",
     submenus: [
       { title: "이재명 대통령", href: "/president/profile" },
-      { title: "이재명 시대", href: "/president/era" },
+      { title: "이제부터 진짜 대한민국", href: "/president/era" },
       { title: "국정비전", href: "/president/vision" },
       { title: "정책대표 공약", href: "/president/pledges" },
       { title: "청와대 국민 품으로", href: "/president/open-office" },
