@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 대한민국 대통령실 비공식 웹사이트 프로젝트
 
-## Getting Started
+이 저장소는 윤석열 정부 기간에 대통령실 공식 홈페이지의 **소스코드가 전부 삭제**되어 복구에 상당한 시간이 소요되는 상황에서,
+국민들이 임시로 참고하고 이용할 수 있는 _비공식 대통령실 웹페이지_ 를 제공하기 위해 시작된 **오픈소스 프로젝트**입니다.
 
-First, run the development server:
+> 관련 기사: ["'이재명 대통령실 홈피' 시간 걸린다… \"尹정부서 소스코드까지 삭제\""](https://n.news.naver.com/article/421/0008305137)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 프로젝트 특징
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js** 기반으로 개발되었습니다.
+- **무상·비영리** 프로젝트로, 어떠한 **상업적 목적**도 없습니다.
+- 라이선스는 **MIT License**를 따릅니다. 누구나 자유롭게 사용·수정·배포할 수 있습니다.
+- 대통령실 공식 홈페이지가 준비되는 즉시 본 사이트의 **실 운영은 중단**될 예정입니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 기여 방법
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. 이 리포지토리를 포크(Fork) 후 로컬에서 작업합니다.
+2. 변경 사항을 커밋한 뒤 Pull Request(PR)를 보내주세요.
+3. 코드 리뷰 후 메인 브랜치에 병합됩니다.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+모든 기여자분들의 참여를 환영합니다! 🙌
