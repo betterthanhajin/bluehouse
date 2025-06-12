@@ -14,49 +14,22 @@ const mainNavItems = [
     submenus: [
       { title: "이재명 대통령", href: "/president/profile" },
       { title: "이제부터 진짜 대한민국", href: "/president/era" },
-      { title: "국정비전", href: "/president/vision" },
-      { title: "정책대표 공약", href: "/president/pledges" },
-      { title: "청와대 국민 품으로", href: "/president/open-office" },
+      { title: "대통령의 말과 글", href: "/president/speeches" },
     ],
   },
-  {
-    title: "대통령실",
-    href: "#",
-    submenus: [
-      { title: "대통령의 말과 글", href: "/office/speeches" },
-      { title: "상징체계 소개", href: "/office/symbols" },
-      { title: "정부 업무보고", href: "/office/reports" },
-      { title: "정책브리핑", href: "/office/briefings" },
-      { title: "정책대 관리 활용", href: "/office/policy-management" },
-      { title: "정책대 관리 활용 자료집", href: "/office/policy-resources" },
-    ],
-  },
-  {
-    title: "국정과제",
-    href: "#",
-    submenus: [
-      { title: "120대 국정과제", href: "/policy/national-tasks" },
-      { title: "국정비전", href: "/president/vision" },
-    ],
-  },
-  {
-    title: "정보공개",
-    href: "#",
-    submenus: [
-      { title: "정보공개제도", href: "/transparency/system" },
-      { title: "정보공개청구", href: "/transparency/request" },
-      { title: "여러 대통령 기록관", href: "/transparency/archives" },
-    ],
-  },
-  {
-    title: "국민제안",
-    href: "/suggestions",
-    submenus: [
-      { title: "제안하기", href: "/suggestions/submit" },
-      { title: "제안 현황", href: "/suggestions" },
-      { title: "처리 현황 조회", href: "/suggestions/status" },
-    ],
-  },
+  { title: "국정비전", href: "/president/vision", submenus: [] },
+  { title: "정책대표 공약", href: "/president/pledges", submenus: [] },
+  { title: "상징체계 소개", href: "/office/symbols", submenus: [] },
+
+  // TODO: 대통령실 메뉴 추가
+  // {
+  //   title: "대통령실",
+  //   href: "#",
+  //   submenus: [
+  //     { title: "정부 업무보고", href: "/office/reports" },
+  //     { title: "정책브리핑", href: "/office/briefings" },
+  //   ],
+  // },
 ];
 
 export default function Header() {
