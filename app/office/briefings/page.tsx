@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ChevronRight, Calendar, Clock, Video, FileText } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ChevronRight, Calendar, Clock, Video, FileText } from "lucide-react";
 
 export default function PolicyBriefingsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("all")
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
     { id: "all", name: "전체" },
@@ -17,7 +17,7 @@ export default function PolicyBriefingsPage() {
     { id: "social", name: "사회" },
     { id: "foreign", name: "외교" },
     { id: "security", name: "안보" },
-  ]
+  ];
 
   const briefings = [
     {
@@ -58,7 +58,8 @@ export default function PolicyBriefingsPage() {
       date: "2024.10.05",
       time: "11:00",
       category: "social",
-      summary: "2050 탄소중립 목표 달성을 위한 부문별 추진 현황과 향후 계획을 발표합니다.",
+      summary:
+        "2050 탄소중립 목표 달성을 위한 부문별 추진 현황과 향후 계획을 발표합니다.",
       image: "/placeholder.svg?height=200&width=300",
       hasVideo: true,
       hasTranscript: true,
@@ -86,14 +87,15 @@ export default function PolicyBriefingsPage() {
       date: "2024.08.15",
       time: "14:30",
       category: "social",
-      summary: "취약계층 지원 확대와 복지 사각지대 해소를 위한 종합 대책을 발표합니다.",
+      summary:
+        "취약계층 지원 확대와 복지 사각지대 해소를 위한 종합 대책을 발표합니다.",
       image: "/placeholder.svg?height=200&width=300",
       hasVideo: false,
       hasTranscript: true,
       views: 6750,
       isLive: false,
     },
-  ]
+  ];
 
   const upcomingBriefings = [
     {
@@ -110,10 +112,12 @@ export default function PolicyBriefingsPage() {
       time: "14:00",
       isLive: false,
     },
-  ]
+  ];
 
   const filteredBriefings =
-    selectedCategory === "all" ? briefings : briefings.filter((b) => b.category === selectedCategory)
+    selectedCategory === "all"
+      ? briefings
+      : briefings.filter((b) => b.category === selectedCategory);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -155,7 +159,7 @@ export default function PolicyBriefingsPage() {
                   {briefing.isLive && (
                     <div className="flex items-center text-sm text-gray-500">
                       <Clock className="h-4 w-4 mr-1" />
-                      <span>시작 {calculateTimeRemaining(briefing.date, briefing.time)}</span>
+                      <span>시작</span>
                     </div>
                   )}
                 </div>
@@ -202,19 +206,28 @@ export default function PolicyBriefingsPage() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center space-x-2 mb-2">
-                    <Badge variant="outline">{getCategoryName(briefing.category)}</Badge>
+                    <Badge variant="outline">
+                      {getCategoryName(briefing.category)}
+                    </Badge>
                     <span className="text-sm text-gray-500">
                       {briefing.date} {briefing.time}
                     </span>
                     {briefing.isNew && (
-                      <Badge variant="secondary" className="bg-red-100 text-red-800">
+                      <Badge
+                        variant="secondary"
+                        className="bg-red-100 text-red-800"
+                      >
                         NEW
                       </Badge>
                     )}
                   </div>
                   <h3 className="text-xl font-bold mb-2">{briefing.title}</h3>
-                  <p className="text-gray-600 mb-2">발표자: {briefing.speaker}</p>
-                  <p className="text-gray-600 mb-4 line-clamp-2">{briefing.summary}</p>
+                  <p className="text-gray-600 mb-2">
+                    발표자: {briefing.speaker}
+                  </p>
+                  <p className="text-gray-600 mb-4 line-clamp-2">
+                    {briefing.summary}
+                  </p>
                   <div className="flex flex-wrap gap-4 mb-4">
                     {briefing.hasVideo && (
                       <div className="flex items-center text-sm text-gray-500">
@@ -239,7 +252,10 @@ export default function PolicyBriefingsPage() {
                         스크립트
                       </Button>
                     )}
-                    <Link href="#" className="text-blue-600 hover:text-blue-800 flex items-center ml-auto">
+                    <Link
+                      href="#"
+                      className="text-blue-600 hover:text-blue-800 flex items-center ml-auto"
+                    >
                       상세보기 <ChevronRight className="h-4 w-4 ml-1" />
                     </Link>
                   </div>
@@ -298,7 +314,7 @@ export default function PolicyBriefingsPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
 
 // 카테고리 이름 가져오기
@@ -308,11 +324,6 @@ function getCategoryName(categoryId: string) {
     social: "사회",
     foreign: "외교",
     security: "안보",
-  }
-  return categories[categoryId as keyof typeof categories] || categoryId
-}
-
-// 남은 시간 계산 (예시 함수)
-function calculateTimeRemaining(date: string, time: string) {
-  return "2시간 후"
+  };
+  return categories[categoryId as keyof typeof categories] || categoryId;
 }

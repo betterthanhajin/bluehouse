@@ -1,12 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChevronRight, FileText } from "lucide-react";
 
 export default function PresidentialSpeechesPage() {
   // 실제 데이터 기반: 취임사 요약, 10대 공약, 임기 첫 주 메시지
@@ -69,7 +64,7 @@ export default function PresidentialSpeechesPage() {
         </h1>
         <div className="text-blue-700 font-semibold text-lg mb-2 flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-          "회복과 성장, 다시 대한민국!"
+          {`"회복과 성장, 다시 대한민국!"`}
         </div>
         <p className="text-base text-gray-500">
           대통령의 국정철학, 비전, 약속을 직접 확인하세요.
