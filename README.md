@@ -5,6 +5,8 @@
 
 > 관련 기사: ["'이재명 대통령실 홈피' 시간 걸린다… \"尹정부서 소스코드까지 삭제\""](https://n.news.naver.com/article/421/0008305137)
 
+[![https://i.imgur.com/wwLJdAC.png](https://i.imgur.com/wwLJdAC.png)](https://i.imgur.com/wwLJdAC.png)
+
 ## 프로젝트 특징
 
 - **Next.js** 기반으로 개발되었습니다.
