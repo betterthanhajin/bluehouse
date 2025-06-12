@@ -9,112 +9,85 @@ import { CheckCircle, Clock, AlertCircle } from "lucide-react"
 export default function PresidentialPledgesPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
 
+  // 실제 정책대표 공약 카테고리
   const pledgeCategories = [
-    { id: "all", name: "전체", count: 50 },
-    { id: "economy", name: "경제", count: 12 },
-    { id: "welfare", name: "복지", count: 10 },
-    { id: "education", name: "교육", count: 8 },
-    { id: "environment", name: "환경", count: 7 },
-    { id: "diplomacy", name: "외교", count: 6 },
-    { id: "others", name: "기타", count: 7 },
-  ]
+    { id: "all", name: "전체" },
+    { id: "economy", name: "민생·경제" },
+    { id: "integration", name: "통합·민주주의" },
+    { id: "growth", name: "공정성장·균형발전" },
+    { id: "culture", name: "문화" },
+    { id: "safety", name: "안전·평화" },
+    { id: "diplomacy", name: "외교" },
+  ];
 
+  // 실제 취임사 및 임기 첫 주 이행 현황 기반 공약
   const pledges = [
     {
       id: 1,
       category: "economy",
-      title: "기본소득 월 50만원 지급",
-      description: "모든 국민에게 월 50만원의 기본소득을 지급하여 기본적 생활을 보장합니다.",
-      status: "진행중",
-      progress: 65,
-      timeline: "2025년 시범사업 → 2026년 본격 시행",
-      budget: "연간 300조원",
-      icon: "💰",
+      title: "민생 회복과 경제 살리기",
+      description: "비상경제대책TF 즉시 가동, 경제 선순환 및 민생 안정 추진. 주식 불공정거래 적발 시스템 개선 등 임기 첫 주부터 민생·경제 안정에 집중.",
+      status: "임기 초 추진중",
+      timeline: "2025.06.09 비상경제점검TF 회의 개최 등",
+      icon: "💹",
     },
     {
       id: 2,
-      category: "welfare",
-      title: "국민건강보험 보장성 90% 확대",
-      description: "의료비 부담을 줄이고 모든 국민이 양질의 의료서비스를 받을 수 있도록 합니다.",
-      status: "완료",
-      progress: 100,
-      timeline: "2023년 완료",
-      budget: "연간 15조원",
-      icon: "🏥",
+      category: "integration",
+      title: "국민통합 및 민주주의 회복",
+      description: "분열의 정치 종식, 통합정부·실용정부 지향. 국민통합을 동력으로 위기 극복, 국민추천제 도입 등 인사 쇄신.",
+      status: "임기 초 추진중",
+      timeline: "2025.06.11 국민추천제 도입 등",
+      icon: "🤝",
     },
     {
       id: 3,
-      category: "education",
-      title: "대학 등록금 반값 실현",
-      description: "교육 기회 평등을 위해 대학 등록금을 50% 인하합니다.",
-      status: "진행중",
-      progress: 40,
-      timeline: "2024년 단계적 시행",
-      budget: "연간 8조원",
-      icon: "🎓",
+      category: "growth",
+      title: "공정성장·균형발전",
+      description: "첨단산업(인공지능, 반도체 등) 투자, 재생에너지 전환, 수도권-지방 균형발전, 공정사회 기반 마련. 한·체코 신규원전 계약 등 경제협력 확대.",
+      status: "임기 초 추진중",
+      timeline: "2025.06.11 한·체코 원전 계약 등",
+      icon: "⚙️",
     },
     {
       id: 4,
-      category: "environment",
-      title: "2050 탄소중립 달성",
-      description: "친환경 에너지 전환과 녹색산업 육성으로 탄소중립을 실현합니다.",
-      status: "진행중",
-      progress: 30,
-      timeline: "2050년 목표",
-      budget: "연간 50조원",
-      icon: "🌱",
+      category: "culture",
+      title: "문화강국 도약",
+      description: "문화산업 육성, 글로벌 소프트파워 5대 강국 도약 목표. K-컬처, 콘텐츠산업 지원 확대.",
+      status: "임기 초 추진중",
+      timeline: "2025년 6월 취임사 발표",
+      icon: "🎵",
     },
     {
       id: 5,
-      category: "economy",
-      title: "청년 일자리 100만개 창출",
-      description: "양질의 청년 일자리를 100만개 창출하여 청년 실업 문제를 해결합니다.",
-      status: "진행중",
-      progress: 75,
-      timeline: "2025년 목표",
-      budget: "연간 20조원",
-      icon: "👨‍💼",
+      category: "safety",
+      title: "안전하고 평화로운 나라",
+      description: "사회적 참사 진상규명, 안전사회 건설, 한반도 평화체제 구축. 대북 확성기 방송 중지 등 긴장 완화 선제 조치.",
+      status: "임기 초 추진중",
+      timeline: "2025.06.11 대북 확성기 중지 지시 등",
+      icon: "🕊️",
     },
     {
       id: 6,
-      category: "welfare",
-      title: "아동수당 월 30만원 지급",
-      description: "만 18세 미만 모든 아동에게 월 30만원의 아동수당을 지급합니다.",
-      status: "완료",
-      progress: 100,
-      timeline: "2023년 시행",
-      budget: "연간 25조원",
-      icon: "👶",
+      category: "diplomacy",
+      title: "국익 중심 실용외교",
+      description: "한미동맹 강화, 주변국과 실용외교, 한중 정상 첫 통화 등 외교 다변화 및 경제영토 확장.",
+      status: "임기 초 추진중",
+      timeline: "2025.06.10 한중 정상 통화 등",
+      icon: "🌏",
     },
-  ]
+  ];
 
+  // 상태 표시는 임기 초 '추진중'만 사용
   const getStatusIcon = (status: string) => {
-    switch (status) {
-      case "완료":
-        return <CheckCircle className="h-4 w-4 text-green-600" />
-      case "진행중":
-        return <Clock className="h-4 w-4 text-blue-600" />
-      case "지연":
-        return <AlertCircle className="h-4 w-4 text-red-600" />
-      default:
-        return <Clock className="h-4 w-4 text-gray-600" />
-    }
-  }
+    return <Clock className="h-4 w-4 text-blue-600" />;
+  };
 
   const getStatusColor = (status: string) => {
-    switch (status) {
-      case "완료":
-        return "bg-green-100 text-green-800"
-      case "진행중":
-        return "bg-blue-100 text-blue-800"
-      case "지연":
-        return "bg-red-100 text-red-800"
-      default:
-        return "bg-gray-100 text-gray-800"
-    }
-  }
+    return "bg-blue-100 text-blue-800";
+  };
 
-  const filteredPledges = selectedCategory === "all" ? pledges : pledges.filter((p) => p.category === selectedCategory)
+  const filteredPledges = selectedCategory === "all" ? pledges : pledges.filter((p) => p.category === selectedCategory);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -126,33 +99,6 @@ export default function PresidentialPledgesPage() {
         </p>
       </div>
 
-      {/* 전체 현황 요약 */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <Card>
-          <CardContent className="p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">50개</div>
-            <p className="text-sm text-gray-600">전체 공약</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-6 text-center">
-            <div className="text-3xl font-bold text-green-600 mb-2">15개</div>
-            <p className="text-sm text-gray-600">완료</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">32개</div>
-            <p className="text-sm text-gray-600">진행중</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-6 text-center">
-            <div className="text-3xl font-bold text-orange-600 mb-2">3개</div>
-            <p className="text-sm text-gray-600">지연</p>
-          </CardContent>
-        </Card>
-      </div>
 
       {/* 카테고리 필터 */}
       <div className="flex flex-wrap gap-2 mb-8">
@@ -233,17 +179,17 @@ export default function PresidentialPledgesPage() {
             <div className="text-center">
               <div className="text-3xl mb-3">📊</div>
               <h3 className="font-medium mb-2">투명한 공개</h3>
-              <p className="text-sm text-gray-600">모든 공약의 추진 현황을 투명하게 공개합니다</p>
+              <p className="text-sm text-gray-600">임기 초부터 공약 이행 현황을 국민께 투명하게 공개합니다.</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-3">⏰</div>
-              <h3 className="font-medium mb-2">약속된 일정</h3>
-              <p className="text-sm text-gray-600">국민과 약속한 일정에 맞춰 차질없이 추진합니다</p>
+              <h3 className="font-medium mb-2">민생 우선</h3>
+              <p className="text-sm text-gray-600">민생 회복과 경제 살리기를 최우선 과제로 삼아 즉각 추진합니다.</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-3">🎯</div>
-              <h3 className="font-medium mb-2">성과 중심</h3>
-              <p className="text-sm text-gray-600">실질적 성과를 통해 국민 삶의 질을 향상시킵니다</p>
+              <div className="text-3xl mb-3">🤝</div>
+              <h3 className="font-medium mb-2">통합과 실용</h3>
+              <p className="text-sm text-gray-600">국민통합과 실용주의, 공정성장을 바탕으로 국가 미래를 준비합니다.</p>
             </div>
           </div>
         </CardContent>
