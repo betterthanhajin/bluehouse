@@ -4,18 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import OfficeOfThePresidentIcon from "../office-of-the-president-icon";
+import { NewsRoomData } from "./news-room-content";
 
-// NewsRoomData 타입은 서버 컴포넌트에서 전달됨
-export type NewsRoomData = {
-  photoNewsData: any[];
-  shortsData: any[];
-  mainNewsData: any[];
-  factCheckData: any[];
-  briefingData: any[];
-  pressReleaseData: any[];
-};
-
-export default function NewsRoomContentClient({ newsRoomData }: { newsRoomData: NewsRoomData }) {
+export default function NewsRoomContentClient({
+  newsRoomData,
+}: {
+  newsRoomData: NewsRoomData;
+}) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentShortsIndex, setCurrentShortsIndex] = useState(0);
 
