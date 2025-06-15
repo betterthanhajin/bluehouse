@@ -10,12 +10,11 @@ export const crawlOGImage = async ({
   let page: Page | undefined;
   try {
     page = await browser.newPage();
-    await page.goto(url);
-
     page.on("dialog", async (dialog) => {
       console.log(`Dialog message: ${dialog.message()}`);
       await dialog.dismiss();
     });
+    await page.goto(url);
 
     const ogImage = await page.evaluate(() => {
       const meta = document.querySelector('meta[property="og:image"]');
