@@ -10,7 +10,8 @@
     "build:cf": "opennextjs-cloudflare build",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts",
+    "crawl": "tsx ./data/crawler/index.ts"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.2.1",
@@ -29,14 +30,24 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@ai-sdk/openai": "^1.3.22",
     "@eslint/eslintrc": "^3",
+    "@inquirer/prompts": "^7.5.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "ai": "^4.3.16",
+    "chalk": "^5.4.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "puppeteer": "^24.10.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-adblocker": "^2.13.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "tailwindcss": "^4.1.8",
+    "tasuku": "^2.0.1",
+    "tsx": "^4.20.3",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5",
     "wrangler": "^4.19.1"
