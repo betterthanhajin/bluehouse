@@ -7,6 +7,11 @@ import { crawlOGImage } from "./og-image";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import AdblockerPlugin from "puppeteer-extra-plugin-adblocker";
 import fs from "fs";
+import {
+  crawlYoutubeShortsList,
+  YoutubeShortsItem,
+} from "./youtube-shorts-list";
+import { crawlYoutubeShortsDetail } from "./youtube-shorts-detail";
 
 dotenv.config();
 
@@ -16,6 +21,7 @@ if (!process.env.OPENAI_API_KEY) {
 
 task("전체 데이터 수집 작업", async (task) => {
   const mainNewsLinks: GoogleNewsItem[] = [];
+  const shortsData: YoutubeShortsItem[] = [];
 
   task.setStatus("퍼펫티어를 띄웁니다.");
   puppeteer.use(StealthPlugin());
@@ -30,6 +36,36 @@ task("전체 데이터 수집 작업", async (task) => {
     args: ["--disable-popup-blocking", "--disable-notifications"],
   });
   task.setStatus("퍼펫티어를 띄웠습니다.");
+
+  await task.task("유튜브 Shorts 데이터 수집", async (task) => {
+    task.setStatus("유튜브 Shorts 목록 수집 중...");
+    shortsData.push(
+      ...(await crawlYoutubeShortsList({
+        browser,
+        url: "https://www.youtube.com/@%EC%9D%B4%EC%9E%AC%EB%AA%85tv/shorts",
+      }))
+    );
+    task.setStatus("유튜브 Shorts 목록 완료");
+
+    for (const item of shortsData) {
+      task.setStatus(
+        `유튜브 Shorts 상세 정보 수집 중... ${shortsData.indexOf(item) + 1}/${
+          shortsData.length
+        }`
+      );
+      const detail = await crawlYoutubeShortsDetail({
+        browser,
+        url: item.link,
+      });
+      item.date = detail.date;
+      item.duration = detail.duration;
+    }
+    task.setStatus("유튜브 Shorts 상세 정보 수집 완료");
+
+    console.log(shortsData);
+  });
+
+  return; // TODO 나중에 제거
 
   await task.task("메인 뉴스룸 데이터 갱신", async (task) => {
     await task.task("구글 뉴스 데이터 수집", async (task) => {
