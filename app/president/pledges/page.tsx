@@ -121,7 +121,9 @@ export default function PresidentialPledgesPage() {
           >
             <span>{category.name}</span>
             <Badge variant="secondary" className="ml-1">
-              {0}
+              {category.id === "all"
+                ? pledges.length
+                : pledges.filter((p) => p.category === category.id).length}
             </Badge>
           </Button>
         ))}
